@@ -292,7 +292,6 @@
 
 </body>
 <script>
-    // --- CÓDIGO DO PRELOADER ---
     window.addEventListener('load', () => {
         const preloader = document.getElementById('preloader');
         if (preloader) { // Verifica se o preloader existe na página
@@ -301,30 +300,22 @@
         }
     });
 
-    // --- CÓDIGO DO FILTRO DO PORTFÓLIO ---
     document.addEventListener('DOMContentLoaded', () => {
         const filterBtns = document.querySelectorAll('.filter-btn');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // 1. Remove a classe 'active' de todos os botões
                 filterBtns.forEach(b => b.classList.remove('active'));
-                
-                // 2. Adiciona a classe 'active' ao botão clicado
                 btn.classList.add('active');
 
-                // 3. Pega o valor do filtro (ex: 'festa', 'luxo')
                 const filterValue = btn.getAttribute('data-filter');
 
-                // 4. Mostra ou esconde os itens com base no filtro
                 portfolioItems.forEach(item => {
-                    // Remove a animação para poder reiniciar
                     item.classList.remove('show-item');
 
                     if (filterValue === 'todos' || item.classList.contains(filterValue)) {
                         item.style.display = 'block';
-                        // Adiciona um pequeno atraso para a animação de entrada funcionar bem
                         setTimeout(() => {
                             item.classList.add('show-item');
                         }, 10);
@@ -334,8 +325,6 @@
                 });
             });
         });
-
-        // Mostra todos os itens suavemente ao carregar a página
         portfolioItems.forEach(item => item.classList.add('show-item'));
     });
 </script>
